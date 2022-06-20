@@ -1,0 +1,10 @@
+Flask
+gunicorn
+Jinja2
+peewee
+requests
+ambient
+pandas
+numpy
+pytz
+datetime

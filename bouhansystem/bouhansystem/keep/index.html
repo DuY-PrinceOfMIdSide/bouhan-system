@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8">
+	<title>IoT防犯システム</title>
+</head>
+
+<body>
+    <form action="/search_result" method="POST">
+        <input type = 'search' name = 'search_start' placeholder="yyyy-mm-dd hh:mm:ss">
+        <input type = 'search' name = 'search_end' placeholder="yyyy-mm-dd hh:mm:ss">
+        <input type = 'submit' name = 'submit' value = '検索'>
+    </form>
+
+	<h1>防犯システム</h1>
+    
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8">
+	<title>IoT防犯システム</title>
+</head>
+<!--文字の中央寄せ-->
+<style>
+    .center {
+    text-align: center; /* インライン要素のセンタリングを指定する */
+    }
+</style>
+<!--検索欄の大きさ指定-->
+<style>
+    #sbox{ 	
+    outline:0; /*クリック時の青い枠線消す*/	
+    height:30px; /*検索ボックスの高さ*/	 
+    border-radius:2px 0 0 2px; /*検索ボックスの角を丸める*/
+    text-align: center; /* インライン要素のセンタリングを指定する */
+    }
+    #sbtn{
+    width:70px;/*検索ボタンの横幅*/ 
+    height:30px;/*検索ボタンの縦幅*/   
+    border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/ 
+    background:#7fbfff;/*検索ボタンの背景カラー*/ 
+    border:none;/*検索ボタンの枠線を消す*/ 
+    color:#fff;/*検索ボタンのテキストカラー*/ 
+    font-weight:bold;/*検索ボタンのテキスト太字*/ 
+    font-size:16px;/*検索ボタンのフォントサイズ*/ 
+    text-align: center; /* インライン要素のセンタリングを指定する */
+}
+</style>
+<font face = 'arial unicode ms'>
+    <body>
+        <div class="center">
+            <h1>防犯システム</h1>
+            <font size = "5">
+                <form action="/search" method="POST">
+                    <input id = 'sbox' type = 'search' name = 'search_start' placeholder="yyyy-mm-dd hh:mm:ss">
+                    <input id = 'sbox' type = 'search' name = 'search_end' placeholder="yyyy-mm-dd hh:mm:ss">
+                    <input id = 'sbtn' type = 'submit' name = 'submit' value = '検索'>
+                </form>
+                <br>
+                <form action = '/result', method="POST">
+                    {% if data == 1 %}
+                        検出回数：{{count}}回    
+                            <a href="result.html">
+                                検索一覧表
+                            </a>
+                    {% else %}
+                        No Data<br>
+                        検索時間を入力してください。
+                    {% endif %}
+                </form>
+            </font>
+        </div>  
+    </body>
+    
+</font>
+
+</html>
